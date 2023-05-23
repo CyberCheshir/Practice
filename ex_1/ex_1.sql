@@ -1,14 +1,14 @@
 --1
 SELECT [Город издания], COUNT(*) AS Количество_книг
 FROM Книги
-WHERE Год_издания = 1877
+WHERE Год_издания = 2016
 GROUP BY [Город издания]
 HAVING COUNT(*) = (
     SELECT MAX(Количество_книг)
     FROM (
         SELECT Город_издания, COUNT(*) AS Количество_книг
         FROM Книги
-        WHERE Год_издания = 1877
+        WHERE Год_издания = 2016
         GROUP BY Город_издания
     ) AS T
 );
@@ -37,5 +37,4 @@ HAVING COUNT(*) = (
         GROUP BY №_читательского_билета
     ) AS Выдачи_книги_по_читателям
 );
-create table table_name;
 
